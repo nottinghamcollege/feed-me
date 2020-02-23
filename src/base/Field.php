@@ -64,7 +64,7 @@ abstract class Field extends Component
 
     public function fetchArrayValue()
     {
-        return DataHelper::fetchArrayValue($this->feedData, $this->fieldInfo, $this->element);
+        return DataHelper::fetchArrayValue($this->feedData, $this->fieldInfo, $this->element, $this->feed['id']);
     }
 
     public function fetchValue()

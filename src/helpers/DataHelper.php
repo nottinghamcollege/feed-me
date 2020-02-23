@@ -34,14 +34,14 @@ class DataHelper
         return $value;
     }
 
-    public static function fetchArrayValue($feedData, $fieldInfo, $element = null)
+    public static function fetchArrayValue($feedData, $fieldInfo, $element = null, $feedId = null)
     {
         $value = [];
 
         $node = Hash::get($fieldInfo, 'node');
         $default = Hash::get($fieldInfo, 'default');
 
-        $dataDelimiter = Plugin::$plugin->service->getConfig('dataDelimiter');
+        $dataDelimiter = Plugin::$plugin->service->getConfig('dataDelimiter', $feedId);
 
         // Some fields require array, or multiple values like Elements, Checkboxes, etc, and we need to parse them differently.
         // Firstly, field mapping is setup like `MatrixBlock/Images` but actual feed is structured like `MatrixBlock/0/Images/0`.
