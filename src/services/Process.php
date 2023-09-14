@@ -286,9 +286,10 @@ class Process extends Component
                 $updateField = $element->$skipUpdateFieldHandle ?? '';
 
                 // We've got our special field on this element, and its switched on
-                if ($updateField === '1') {
+		// https://github.com/craftcms/feed-me/issues/1368
+		// This no longer appears to return a string but a boolean value
+                if ($updateField || $updateField === '1') {
                     Plugin::info('Skipped due to config setting.');
-
                     return;
                 }
             }
